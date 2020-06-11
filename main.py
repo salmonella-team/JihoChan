@@ -16,6 +16,13 @@ KIYATAKE = settings.KIYATAKE
 JIHOU = settings.JIHOU
 ROOM1 = settings.ROOM1
 
+# 音声
+KEIREN = settings.KEIREN
+BIRIBIRI = settings.BIRIBIRI
+JISSYOKU = settings.JISSYOKU
+AA = settings.AA
+JIKO = settings.JIKO
+
 bot = commands.Bot(command_prefix='/jihou ')
 
 global vc
@@ -63,12 +70,27 @@ async def ts(ctx, arg):
 #痙攣
 @bot.command()
 async def keiren(ctx):
-    vc.play(discord.FFmpegPCMAudio('https://owncloud.s4m0r1.me/index.php/s/zj9p3QCTxJMceM6/download'))
+    vc.play(discord.FFmpegPCMAudio(KEIREN))
 
 #ビリビリ
 @bot.command()
 async def biribiri(ctx):
-    vc.play(discord.FFmpegPCMAudio('https://owncloud.s4m0r1.me/index.php/s/7TjmRzrAcs9QXeL/download'))
+    vc.play(discord.FFmpegPCMAudio(BIRIBIRI))
+
+#実食
+@bot.command()
+async def jissyoku(ctx):
+    vc.play(discord.FFmpegPCMAudio(JISSYOKU))
+
+#ああ
+@bot.command()
+async def aa(ctx):
+    vc.play(discord.FFmpegPCMAudio(AA))
+
+#自己紹介
+@bot.command()
+async def jiko(ctx):
+    vc.play(discord.FFmpegPCMAudio(JIKO))
 
 # 切断
 @bot.command()
@@ -81,7 +103,7 @@ def tts_start(arg):
     tts = gTTS(text=arg, lang='ja')
     tts.save('a.mp3')
     vc.play(discord.FFmpegPCMAudio(
-    'a.mp3'))
+    'a.mp3', options='-af volume=10dB,atempo=1.2'))
 
 
 if __name__ == "__main__":

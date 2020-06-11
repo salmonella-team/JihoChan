@@ -16,3 +16,12 @@ GUILD = os.environ.get("GUILD")
 KIYATAKE = os.environ.get("KIYATAKE")
 JIHOU = os.environ.get("JIHOU")
 ROOM1 = os.environ.get("ROOM1")
+
+
+# sound
+
+KEIREN = os.environ.get("KEIREN")
+BIRIBIRI = os.environ.get("BIRIBIRI")
+JISSYOKU = os.environ.get("JISSYOKU")
+AA = os.environ.get("AA")
+JIKO = os.environ.get("JIKO")
